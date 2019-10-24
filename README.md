@@ -27,5 +27,5 @@ Features:
 3-	Human Interface for dynamically controlling. 
 4-	Easy Configurable code and layered code. 
 
-For Simulation check GIF file. 
-For documentation check PDF file.
+-For Simulation check GIF file. 
+-For documentation check PDF file.
