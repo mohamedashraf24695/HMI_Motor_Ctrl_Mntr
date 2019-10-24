@@ -26,3 +26,5 @@ Features:
 2-	Control the direction of the motor at run time.
 3-	Human Interface for dynamically controlling. 
 4-	Easy Configurable code and layered code. 
+
+For proteus , Check the pdf 
