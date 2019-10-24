@@ -52,6 +52,16 @@
 #define CURSOR_ON 0x0E
 #define SET_CURSOR_LOCATION 0x80
 
+/* LCD Parameters */
+#define First_ROW 0
+#define Second_ROW 1
+#define Third_ROW 2
+#define Fourth_ROW 3
+
+#define First_Char 0
+#define Second_Char 1
+#define Third_Char 2
+#define Fourth_Char 3
 /*******************************************************************************
  *                      Functions Prototypes                                   *
  *******************************************************************************/

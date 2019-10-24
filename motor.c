@@ -197,7 +197,7 @@ uint8 motor_statues(uint8 motor_name){
 void adjust_speed_precentage(float32 precentage){
 if(precentage >=0 && precentage <=100){
 
-	uint8 speed = (uint8) ( (precentage/100.0) * 255) ;
+	uint8 speed = (uint8) ( (precentage/100.0) * MAX_PWM_REGISTER_NUMBER) ;
     PWM_Timer0_Init(speed);
 }
 else {

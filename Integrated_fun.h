@@ -34,6 +34,10 @@
 
 
 #define MAX_NUMBER_OF_PRECENTAGE 3
+#define MOTOR_INC_DEC_RATE 10
+#define MAX_INC_DEC_RATE 100
+#define MIN_INC_DEC_RATE 0
+#define MAX_PRECENTAGE 100
 
            /*******************************************************************************
                *                      Variables definition                                 *
