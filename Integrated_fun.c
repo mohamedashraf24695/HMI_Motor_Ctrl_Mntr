@@ -48,13 +48,15 @@ void Request_number_from_user(const char *str){
 
 	LCD_clearScreen();
 	LCD_displayString("Hello,");
-	LCD_goToRowColumn(1,0);
+	LCD_goToRowColumn(Second_ROW,First_Char);
 	LCD_displayString("Please enter");
-	LCD_goToRowColumn(2,0);
+	LCD_goToRowColumn(Third_ROW,First_Char);
 	LCD_displayString(str);
-	LCD_goToRowColumn(3,0);
+	LCD_goToRowColumn(Fourth_ROW,First_Char);
 	LCD_displayString("_ _ _");
 	_delay_ms(500);
+
+
 }
 
 void Menu_of_options(void){
@@ -65,11 +67,11 @@ void Menu_of_options(void){
 	 * */
 	    LCD_clearScreen();
 		LCD_displayString("(+,-):ctrl.speed");
-		LCD_goToRowColumn(1,0);
+		LCD_goToRowColumn(Second_ROW,First_Char);
 		LCD_displayString("(=):adj.speed");
-		LCD_goToRowColumn(2,0);
+		LCD_goToRowColumn(Third_ROW,First_Char);
 		LCD_displayString("(%,X):START/STOP");
-		LCD_goToRowColumn(3,0);
+		LCD_goToRowColumn(Fourth_ROW,First_Char);
 		LCD_displayString("(1):inv.direction");
 
 
@@ -85,11 +87,11 @@ void Current_state (uint8 speed , uint8 direction){
 	 * */
 	    LCD_clearScreen();
 		LCD_displayString("Current state");
-		LCD_goToRowColumn(1,0);
+		LCD_goToRowColumn(Second_ROW,First_Char);
 		LCD_displayString("Speed:");
 		LCD_intgerToString(speed);
 		LCD_displayCharacter('%');
-		LCD_goToRowColumn(2,0);
+		LCD_goToRowColumn(Third_ROW,First_Char);
 
 	if(direction == MOTOR_IS_CLOCK_WISE){
 		LCD_displayString("direction:");
@@ -104,7 +106,7 @@ void Current_state (uint8 speed , uint8 direction){
 				LCD_displayString("STOP");
 			}
 
-	LCD_goToRowColumn(3,0);
+	LCD_goToRowColumn(Fourth_ROW,First_Char);
 	LCD_displayString("Any key:Menu");
 
 
@@ -127,11 +129,11 @@ uint16 Take_number_from_user (void){
 	 * */
     LCD_clearScreen();
     LCD_displayString("Speed:");
-    LCD_goToRowColumn(3,0);
+    LCD_goToRowColumn(Fourth_ROW,First_Char);
     LCD_displayString("'=':confirm");
-    LCD_goToRowColumn(2,0);
+    LCD_goToRowColumn(Third_ROW,First_Char);
     LCD_displayString("___");
-    LCD_goToRowColumn(2,0);
+    LCD_goToRowColumn(Third_ROW,First_Char);
 
 	uint16 result ;
 	uint8 Key ;
@@ -201,8 +203,8 @@ uint16 adjust_number_from_user(uint16 number){
  *
  *
  * */
-if(number > 100){
-	return 100 ;
+if(number > MAX_PRECENTAGE){
+	return MAX_PRECENTAGE ;
 }
 else {
 	return number ;
@@ -224,17 +226,17 @@ void Control_function (uint8 key_read ,uint8 *INPUT){
 
 	if(key_read=='+'){
 
-	*INPUT =*INPUT + 10 ;
-	      if(*INPUT > 100){
-		*INPUT =100 ;
+	*INPUT =*INPUT + MOTOR_INC_DEC_RATE ;
+	      if(*INPUT > MAX_INC_DEC_RATE){
+		*INPUT = MAX_INC_DEC_RATE ;
 	    }
 
 	 }
 	if(key_read=='-'){
 
-	*INPUT =*INPUT - 10 ;
-	      if(INPUT <= 0){
-		*INPUT = 0 ;
+	*INPUT =*INPUT - MOTOR_INC_DEC_RATE ;
+	      if(INPUT <= MIN_INC_DEC_RATE){
+		*INPUT = MIN_INC_DEC_RATE ;
 	    }
 
 	 }
